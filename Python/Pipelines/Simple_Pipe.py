@@ -334,18 +334,11 @@ def load_saved_eigs_and_analyse(subj_names, data_folder, proxy_measure, fcd_calc
 
 
 def main_pipe():
-    # n_eigs = 5
-    # n_eigs = 19
-    # n_eigs = [5, 7, 9, 13, 18]
+
     # n_eigs = [7, 8, 9, 10]
     n_eigs = 18
 
-    # window_sizes = [10, 15, 20, 25, 30, 35]
-    # window_sizes = [10, 12, 15, 17, 20]
-    # window_sizes = [5, 7, 9, 12]
-    # window_sizes = [9, 10, 11]
     # window_sizes = [7, 8, 9, 10, 11, 12]
-
     window_sizes = 10
     window_shape = "Rect"
     multi_eigs = False
@@ -363,6 +356,8 @@ def main_pipe():
     # subj_partition = False
 
     raw_data_folder_path = '//WMData_HCP_100/'
+    from pathlib import Path
+    Path.cwd()
     subject_txt = "/Users/oliversherwood/Documents/CODE/MEIDAS_MAIN/WMData_HCP_100/SubjectsToDownload_100_HCP.txt"
     subj_names = extract_subj_id(subject_txt, subj_partition, n_part)
 

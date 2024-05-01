@@ -1,5 +1,7 @@
 # DySCo
 
+![Alt text](https://images.rawpixel.com/image_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTExL3Jhd3BpeGVsb2ZmaWNlNF90aGVfcG5nX2dyYXBoaWNfc2ltcGxlX2ZsYXRfZWxlbWVudF9vZl9wc3ljaGVkZV85YTAwY2JlMS00YjA3LTQxNDktYWMxOC1iYjdhNDU2OWYyYjdfMS5qcGc.jpg)
+
 ## Background
 Dynamic Symmetric Connectivity is a mathematical framework
 
@@ -8,6 +10,29 @@ For full information of the mathematically mechanisms of Dysco find paper by (RE
 
 
 ## Installation
+
+### Dependencies required: 
+
+#### Python
+
+Core_functions:
+- scipy
+- tqdm
+- numpy
+
+Pipeline:
+- nibabel
+- random
+- numpy
+- matplotlib
+- sys
+- os
+- tqdm
+- joblib
+- threading
+- warnings
+- scipy
+
 
 
 
@@ -33,7 +58,7 @@ Main version (29.04) = 'Simple_Pipe.py'
 
 ### GUI 
 
-If the thought of delving into code and inevitable debugging, there is an interface available for DySCo.
+If the thought of delving into code and inevitable debugging causes distress, there is an interface available for DySCo.
 You will have to specify the path to your data as well as a subject.txt (with the subject id), and the path to your output folder
 (where you want the plots and data_out saved). Additionally, you will have to specify the type of analysis and plotting 
 you wish to do. Then press run...and wait. 

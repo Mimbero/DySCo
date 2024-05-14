@@ -42,7 +42,8 @@ Pipeline:
 - scipy
 
 
-## Usage![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
+## Usage
+![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 
 ### Core Functions
 

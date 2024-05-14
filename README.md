@@ -1,14 +1,22 @@
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCo%20(3).png)
 
-![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
-
 ## Background
-Dynamic Symmetric Connectivity is a mathematical framework
+
+DySCo (Dynamic Symmetric Connectivity) is a unified mathematically rigorous framework for 
+dFC approaches that proposes a set of simple, model independent metrics to complement current ones.
+It is applicable to any source of data structured as a multivariate time-series.
+It is based on the Recurrence Matrix EVD algorithm, a purpose developed new method to compute eigenvectors and eigenvalues,
+that outperforms existing methods computational speed and memory requirement by orders of magnitude.
+Dysco works seemlessly with very high-dimensional data, both in time and space, and thus paves the road to efficient and systematic
+as well as the real-time exploration of dynamic patterns of connectivity.
 
 
 For full information of the mathematically mechanisms of Dysco find paper by (REF) 
 
+![Alt text]()
 
+
+![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 ## Installation
 
 ### Dependencies required: 

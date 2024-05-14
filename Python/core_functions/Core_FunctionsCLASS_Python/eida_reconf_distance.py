@@ -4,6 +4,7 @@ from numpy.linalg import norm
 # NOTE THIS NEEDS TO BE TESTED AGAINST MATLAB !!!!!
 
 
+
 class Eida_reconf_distance:
     def __init__(self, normalize):
         self.normalize = normalize

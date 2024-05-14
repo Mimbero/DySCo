@@ -3,6 +3,7 @@ from tqdm import tqdm
 from scipy.linalg import eigh
 from scipy.signal import tukey
 class Compute_Eigs:
+
     def __init__(self, timeseries, n_eigen, half_window_size):
         self.timeseries = timeseries
         self.n_eigen = n_eigen

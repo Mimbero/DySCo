@@ -1,4 +1,4 @@
-# DySCo
+![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCo%20(3).png)
 
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 

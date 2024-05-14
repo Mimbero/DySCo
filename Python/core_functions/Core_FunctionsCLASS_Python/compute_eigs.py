@@ -59,6 +59,53 @@ class Compute_Eigs:
         progress_bar_eigs.close()
         return eigenvectors, eigenvalues
 
+    def compute_eigs_corr(self):
+
+        # timeseries should be TxN, so every row is a timepoint and every column is a dimension
+
+        if self.n_eigen > 2 * self.half_window_size:  # maximum rank of corr matrix
+            raise ValueError('Number of requested eigenvectors is too large')
+
+        t, n = self.timeseries.shape
+        total_iterations = t - 2 * self.half_window_size
+        progress_bar_eigs = tqdm(total=total_iterations, desc="Calculating eigenvectors and eigenvalues:")
+
+        eigenvectors = np.zeros((t - 2 * self.half_window_size, n, self.n_eigen))
+
+        eigenvalues = np.zeros((self.n_eigen, t - 2 * self.half_window_size))
+
+        for i in range(t - 2 * self.half_window_size):
+            truncated_timeseries = self.timeseries[i:i + 2 * self.half_window_size + 1, :]
+            zscored_truncated = (truncated_timeseries - np.mean(truncated_timeseries, axis=0)) / np.std(
+                truncated_timeseries, axis=0)
+
+            normalizing_factor = truncated_timeseries.shape[0] - 1
+            zscored_truncated /= np.sqrt(normalizing_factor)
+
+            # correlation matrix
+            minimatrix = zscored_truncated @ zscored_truncated.T
+            ns = len(minimatrix)
+
+            # Gathering eigenvectors (columns of v) and eigenvalues (diagonal of a) of minimatrix.
+            # Eigenvalues will be them. Eigenvectors will be the obtained coefficients x original vectors.
+            eigenvalues_t, eigenvectors_t = eigh(minimatrix, subset_by_index=[ns - self.n_eigen, ns - 1],
+                                                 overwrite_a=True,
+                                                 check_finite=False)
+            eigenvectors_t = np.flip(eigenvectors_t, axis=1)
+            eigenvalues_t = np.flip(eigenvalues_t, axis=0)
+            eigenvalues[:, i] = eigenvalues_t
+            eigenvectors[i, :, :] = np.dot(zscored_truncated.T, eigenvectors_t)
+
+            # normalizing the eigenvectors by sqrt of eigenvalues
+            for j in range(self.n_eigen):
+                eigenvectors[i, :, j] = eigenvectors[i, :, j] / np.linalg.norm(eigenvectors[i, :, j])
+                eigenvectors[i, :, j] = eigenvectors[i, :, j] * np.sqrt(eigenvalues[j, i])
+
+            progress_bar_eigs.update(1)
+
+        return eigenvectors, eigenvalues
+
+
     def gaussian_weight(self, x, sigma):
         return np.exp(-0.5 * (x / sigma) ** 2)
 

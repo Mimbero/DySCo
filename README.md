@@ -1,6 +1,6 @@
 # DySCo
 
-![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_opener.gif)
+![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 
 ## Background
 Dynamic Symmetric Connectivity is a mathematical framework

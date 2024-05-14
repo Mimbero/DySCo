@@ -13,10 +13,10 @@ as well as the real-time exploration of dynamic patterns of connectivity.
 
 For full information of the mathematically mechanisms of Dysco find paper by (REF) 
 
+### Overview of the framework: 
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DYSCO_main_12_04.png)
 
 
-![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 ## Installation
 
 ### Dependencies required: 
@@ -42,10 +42,7 @@ Pipeline:
 - scipy
 
 
-
-
-
-## Usage 
+## Usage![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 
 ### Core Functions
 

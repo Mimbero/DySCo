@@ -25,6 +25,22 @@ For full information of the mathematically mechanisms of Dysco find paper by (de
 ## Usage
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 
+Here we show the main steps involved in the DySCo framework as well as important methodological decisions that must be made when using the framework.
+After input of raw data and appropriate pre-processing there are 4 possible dFC
+matrices as described in the paper. Based upon the choice of dFC matrix (C(t)),
+subsequent processing steps are employed (such as window
+size adjustment or extraction of phase) to express these dFC matrices into a
+unified equation. We next calculate the eigenvalues and eigenvectors associated with the dFC matrices
+using the Recurrence Matrix EVD.
+The eigenvalue-eigenvector representation contains all the information needed
+to perform dFC analyses, and to compute the DySCo measures.
+The three main measures are Norms, Distances, and Entropy.
+From these we can obtain derived measures: from the norm it is possible to
+compute metastability, from the distance it is possible to compute
+the FCD matrix and the reconfiguration speed.
+
+## Code
+
 ### MATLAB (Available Now): 
 In Matlab we provide the core functions, i.e., the functions to compute the RMEVD, and, from EVD representation, the dysco measures (distance, norm and entropy). 
 Note that, as in the Theory, the RMEVD for the cofluctuation matrix is analytical and it is just a z-scoring.
@@ -40,7 +56,8 @@ FCD(i,j) = dysco_distance(matrix_time_point_i,matrix_time_point_j,what_distance)
 
 We also provide a toy example to compute all these quantities on a simulated dataset (which will be uploaded soon, upon paper submission) 
 
-### PYTHON (N.B. Core functions and Pipelines will be released: 22.06.24): 
+### PYTHON 
+### (N.B. Core functions and Pipelines will be released: 22.06.24): 
 
 We also provide the core functions in Python as with MATLAB above. To use the core functions please find in 'core_functions' folder. 
 
@@ -60,23 +77,27 @@ These are currently built to function on fMRI timeseries data (N x t)
 
 #### Python
 
-Core_functions:
-- scipy
-- tqdm
-- numpy
+<h3><b>Dependencies</b></h3>
+<ul style=“list-style-type:disc”>
+Core Functions:
 
-Pipeline:
-- nibabel
-- random
-- numpy
-- matplotlib
-- sys
-- os
-- tqdm
-- joblib
-- threading
-- warnings
-- scipy
+<li>Python</li>
+<li>SciPy</li>
+<li>tqdm</li>
+<li>NumPy</li>
+
+Pipelines:
+
+<li>Scikit-Learn</li>
+<li>Pandas</li>
+<li>Matplotlib</li>
+<li>Seaborn</li>
+<li>Nilearn</li>
+<li>random</li>
+<li>joblib</li>
+<li>threading</li>
+</ul>
+
 
 ### Help and Support 
 

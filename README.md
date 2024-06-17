@@ -17,31 +17,6 @@ For full information of the mathematically mechanisms of Dysco find paper by (RE
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DYSCO_main_12_04.png)
 
 
-## Installation
-
-### Dependencies required: 
-
-#### Python
-
-Core_functions:
-- scipy
-- tqdm
-- numpy
-
-Pipeline:
-- nibabel
-- random
-- numpy
-- matplotlib
-- sys
-- os
-- tqdm
-- joblib
-- threading
-- warnings
-- scipy
-
-
 ## Usage
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 
@@ -83,3 +58,28 @@ If the thought of delving into code and inevitable debugging causes distress, th
 You will have to specify the path to your data as well as a subject.txt (with the subject id), and the path to your output folder
 (where you want the plots and data_out saved). Additionally, you will have to specify the type of analysis and plotting 
 you wish to do. Then press run...and wait. 
+
+## Installation
+
+### Dependencies required: 
+
+#### Python
+
+Core_functions:
+- scipy
+- tqdm
+- numpy
+
+Pipeline:
+- nibabel
+- random
+- numpy
+- matplotlib
+- sys
+- os
+- tqdm
+- joblib
+- threading
+- warnings
+- scipy
+

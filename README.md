@@ -57,7 +57,7 @@ FCD(i,j) = dysco_distance(matrix_time_point_i,matrix_time_point_j,what_distance)
 We also provide a toy example to compute all these quantities on a simulated dataset (which will be uploaded soon, upon paper submission) 
 
 ### PYTHON 
-### (N.B. Core functions and Pipelines will be released: 22.06.24): 
+### (N.B. Core functions and Pipelines will be released: <i>22.06.24</i>): 
 
 We also provide the core functions in Python as with MATLAB above. To use the core functions please find in 'core_functions' folder. 
 

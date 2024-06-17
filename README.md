@@ -11,7 +11,7 @@ Dysco works seemlessly with very high-dimensional data, both in time and space, 
 as well as the real-time exploration of dynamic patterns of connectivity.
 
 
-For full information of the mathematically mechanisms of Dysco find paper by (REF) 
+For full information of the mathematically mechanisms of Dysco find paper by (De Alteriis & Sherwood et al., - in Preparation - https://www.biorxiv.org/content/10.1101/2024.06.12.598743v1) 
 
 ### Overview of the framework: 
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DYSCO_main_12_04.png)

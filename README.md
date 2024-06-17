@@ -45,9 +45,24 @@ Pipeline:
 ## Usage
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 
-### Core Functions
+### MATLAB: 
+In Matlab we provide the core functions, i.e., the functions to compute the RMEVD, and, from EVD representation, the dysco measures (distance, norm and entropy). 
+Note that, as in the Theory, the RMEVD for the cofluctuation matrix is analytical and it is just a z-scoring.
+Note that to compute the derived measures, like FCD or metastability, you just need a few lines of code where you call the core functions. 
+For example, metastability, being the standard deviation of the norm, would be
+meta = std(dysco_norm(eigenvalues,1));
 
-To use the core functions please find in 'core_functions' folder, available for either MATLAB or Python. 
+or for FCD: 
+
+% (iterate over the time points of interest)
+
+FCD(i,j) = dysco_distance(matrix_time_point_i,matrix_time_point_j,what_distance)
+
+We also provide a toy example to compute all these quantities on a simulated dataset (which will be uploaded soon, upon paper submission) 
+
+### PYTHON: 
+
+We also provide the core functions in Python as with MATLAB above. To use the core functions please find in 'core_functions' folder. 
 As a brief break down of the utility of each function. 
 
 - compute_eigs = 

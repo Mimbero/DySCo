@@ -21,10 +21,6 @@ For full information of the mathematically mechanisms of Dysco find paper by (de
 ### Overview of the framework: 
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DYSCO_main_12_04.png)
 
-
-## Usage
-![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
-
 Here we show the main steps involved in the DySCo framework as well as important methodological decisions that must be made when using the framework.
 After input of raw data and appropriate pre-processing there are 4 possible dFC
 matrices as described in the paper. Based upon the choice of dFC matrix (C(t)),
@@ -38,6 +34,10 @@ The three main measures are Norms, Distances, and Entropy.
 From these we can obtain derived measures: from the norm it is possible to
 compute metastability, from the distance it is possible to compute
 the FCD matrix and the reconfiguration speed.
+
+
+## Usage
+![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 
 ## Code
 

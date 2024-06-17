@@ -1,4 +1,4 @@
-function distance = eida_distance(matrix1,matrix2,what_distance)
+function distance = dysco_distance(matrix1,matrix2,what_distance)
 
 % Giuseppe de Alteriis Oct 2023. 
 
@@ -37,7 +37,9 @@ minimatrix(1:n_eigen,n_eigen+1:2*n_eigen) = minimatrix_up_right;
 minimatrix(n_eigen+1:2*n_eigen,1:n_eigen) = -minimatrix_up_right';
 
 if what_distance ~=2
-    %now I can compute eigenvalues ... why...this is giving complex numbers...???
+    %now I can compute eigenvalues ... why...this is giving complex
+    %numbers...??? Because the minimatrix in this case is not symmetric,
+    %therefore matlab gives you complex numbers
     [~,lambdas] = eig(minimatrix);
     %lambdas = diag(lambdas);
     lambdas = real(diag(lambdas));
@@ -47,14 +49,7 @@ if what_distance==1
     distance = sum(abs(lambdas));
 elseif what_distance==Inf
     distance = max(abs(lambdas));
-elseif what_distance==2 % this should be equal to the sum of all squared elements of the matrix
-    
-    % wait...since I'm looking for ONLY eigenvalues of minimatrix...I know that
-    % this is equal to just sum of squared elements!
-    % let's try...
-    
-    % distance = sum all eigens squared-2fro(minimatrix_up_right)
-    
+elseif what_distance==2 % this should be equal to the sum of all squared elements of the matrix   
     distance = sqrt(sum(diag(minimatrix).^2)-2*sum(minimatrix_up_right.^2,'all'));
 
 end

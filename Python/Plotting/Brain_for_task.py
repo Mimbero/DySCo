@@ -105,30 +105,32 @@ lvert, ltri = nib.load(ltemp).agg_data()
 
 # EigVects = np.load('/Users/oliversherwood/Documents/CODE/MEIDAS_MAIN/EIDA_Old/DATA/G/Sub1_eigvect29_ws_15.npy')
 
-EigVects = np.load('//Python/Scripts/Mean_EIGVECT.npy')
-# EigVects = np.load('/Users/oliversherwood/Documents/CODE/MEIDAS_MAIN/Python/Scripts/Mean_EIGVECT_1_SUB.npy')
+# EigVects = np.load('/Users/oliversherwood/Documents/CODE/DySCo/Saved_out/Mean_EIGVECT.npy')
+EigVects = np.load('/Users/oliversherwood/Documents/CODE/DySCo/Saved_out/Mean_EIGVECT_EPI_FE_SUB.npy')
 
 # EigVal = np.load('/Users/oliversherwood/Documents/CODE/MEIDAS_MAIN/EIDA_Old/DATA/G/Sub1_eigVAL29_ws_15.npy')
 
-IndexZero = np.load('//EIDA_Old/DATA/IndexZero.npy')
-task = np.loadtxt('//Python/DATA/G/TaskTC.txt')
-task_reduced = np.mean(task, axis=1)
-task_reduced = task_reduced[15:390]
+IndexZero = np.load('/Users/oliversherwood/Documents/CODE/DySCo/Legacy/EIDA_Old/DATA/IndexZero.npy')
+# task = np.loadtxt('/Users/oliversherwood/Documents/CODE/DySCo/Legacy/EIDA_Old/DATA/G copy/TaskTC.txt')
+# task_reduced = np.mean(task, axis=1)
+# task_reduced = task_reduced[15:390]
+#
+# task_block = np.zeros(len(task_reduced))
+# for i in range(len(task_reduced)):
+#     if task_reduced[i] > 0:
+#         task_block[i] = 1
+#     else:
+#         task_block[i] = 0
 
-task_block = np.zeros(len(task_reduced))
-for i in range(len(task_reduced)):
-    if task_reduced[i] > 0:
-        task_block[i] = 1
-    else:
-        task_block[i] = 0
-
-EigN = 2
+EigN = 0
 # TR_list = [50, 90, 150, 190, 250, 290, 350]
 # TR_list = [0, 11, 20, 40, 60, 90]
 # TR_ranges = [(0, 11), (11, 20), (20, 40), (40, 60), (60, 90)]
-TR_ranges = [(10, 70), (80, 100), (101, 170), (180, 200), (201, 270), (280, 300)]
+# TR_ranges = [(10, 70), (80, 100), (101, 170), (180, 200), (201, 270), (280, 300)]
+TR_ranges = [(0, 40), (60, 90), (100, 140), (141, 180)]
 # TR = 350
-subject_folder = '/Users/oliversherwood/Documents/CODE/DYSCO_FIGS_09_04'
+# subject_folder = '/Users/oliversherwood/Documents/CODE/DYSCO_FIGS_23_05'
+subject_folder ='/Users/oliversherwood/Documents/CODE/DySCo/Saved_out/EPI_DATA_SAVE/BRAIN_BLOB_EPI_FE'
 
 EigIm = np.zeros([IndexZero.shape[0], EigVects.shape[0]])
 
@@ -167,7 +169,7 @@ for i, (start, end) in enumerate(TR_ranges):
 
     norm = matplotlib.colors.Normalize(vmin=overall_min, vmax=overall_max)
     norm_colour_DAT = cmap(norm(avg_TR_values))*255
-    filename = subject_folder + f'/DYSCO_Brain_blob_EIG3_TR{i}.ply'
+    filename = subject_folder + f'/DYSCO_Brain_blob_EIG1_TR{i}.ply'
     write_plyRGB(filename, lvert, ltri, norm_colour_DAT[:, 0], norm_colour_DAT[:, 1], norm_colour_DAT[:, 2])
 
     x, y, z = lvert[:, 0], lvert[:, 1], lvert[:, 2]

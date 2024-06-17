@@ -6,8 +6,6 @@ function [eigenvectors,eigenvalues] = compute_eigenvectors_sliding_cov(timeserie
 % timeseries should be TxN, so every row is a timepoint and every column is
 % a dimension
 
-% here maybe we could add the case where we are full rank...?
-
 if n_eigen > 2*half_window_size % maximum rank of corr matrix
    error('Number of requested eigenvectors is too large');
 end

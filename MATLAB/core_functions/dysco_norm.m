@@ -1,4 +1,4 @@
-function norm = eida_norm(eigenvalues,what_norm)
+function norm = dysco_norm(eigenvalues,what_norm)
 
 % Giuseppe de Alteriis Oct 2023. With the vector of eigenvalues of the
 % matrix I can compute norm very simply

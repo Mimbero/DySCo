@@ -20,7 +20,7 @@ For full information of the mathematically mechanisms of Dysco find paper by (RE
 ## Usage
 ![Alt text](https://github.com/Mimbero/DySCo/blob/main/Python/GUI/DySCO_openerV3.gif)
 
-### MATLAB: 
+### MATLAB (Available Now): 
 In Matlab we provide the core functions, i.e., the functions to compute the RMEVD, and, from EVD representation, the dysco measures (distance, norm and entropy). 
 Note that, as in the Theory, the RMEVD for the cofluctuation matrix is analytical and it is just a z-scoring.
 Note that to compute the derived measures, like FCD or metastability, you just need a few lines of code where you call the core functions. 
@@ -35,29 +35,19 @@ FCD(i,j) = dysco_distance(matrix_time_point_i,matrix_time_point_j,what_distance)
 
 We also provide a toy example to compute all these quantities on a simulated dataset (which will be uploaded soon, upon paper submission) 
 
-### PYTHON: 
+### PYTHON (N.B. Core functions and Pipelines will be released: 22.06.24): 
+
 
 We also provide the core functions in Python as with MATLAB above. To use the core functions please find in 'core_functions' folder. 
-As a brief break down of the utility of each function. 
-
-- compute_eigs = 
-- compute_norm = 
-- eida_distance = 
-- eida_reconf_distance =
 
 ### Pipelines
 
 There are a number of pre-built pipelines (only available in python currently) for running the DySCo framework. 
 These are currently built to function on fMRI timeseries data (N x t)
 
-Main version (29.04) = 'Simple_Pipe.py'
-
 ### GUI 
 
-If the thought of delving into code and inevitable debugging causes distress, there is an interface available for DySCo.
-You will have to specify the path to your data as well as a subject.txt (with the subject id), and the path to your output folder
-(where you want the plots and data_out saved). Additionally, you will have to specify the type of analysis and plotting 
-you wish to do. Then press run...and wait. 
+#### Coming Very Soon...
 
 ## Installation
 

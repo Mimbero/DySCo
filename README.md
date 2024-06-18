@@ -79,15 +79,13 @@ These are currently built to function on fMRI timeseries data (N x t)
 
 <h3><b>Dependencies</b></h3>
 <ul style=“list-style-type:disc”>
-Core Functions:
-
+<li><i>Core Functions:</i></li>
 <li>Python</li>
 <li>SciPy</li>
 <li>tqdm</li>
 <li>NumPy</li>
 
-Pipelines:
-
+<li><i>Pipelines:</i></li>
 <li>Scikit-Learn</li>
 <li>Pandas</li>
 <li>Matplotlib</li>

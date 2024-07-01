@@ -95,10 +95,14 @@ We also provide a short tutorial on how to run each of the core functions in mat
     ```
 ### Core Functions
 
-- **compute_eigs.py**: Computes eigenvalues and eigenvectors for the given data matrix.
-- **compute_norm.py**: Computes the norm from the eigenvalues.
-- **eida_distance.py**: Computes the distance between two matrices using the DySCo framework.
-- **eida_reconf_distance.py**: Computes the reconfiguration distance between matrices over time.
+- **compute_eigenvectors_sliding_corr.py**: Computes eigenvalues and eigenvectors for the given data matrix, using sliding window correlation
+- **compute_eigenvectors_sliding_cov.py**: Computes eigenvalues and eigenvectors for the given data matrix, using sliding window covariance
+- **compute_eigenvectors_iPA.py**: Computes eigenvalues and eigenvectors for the given data matrix, using instantaneous phase alignment
+- **dysco_norm.py**: Computes the norm from the eigenvalues.
+- **dysco_distance.py**: Computes the distance between two matrices using the DySCo framework.
+- **dysco_mode_alignment.py**: Computes the reconfiguration distance between matrices over time.
+
+For those classy few, there are also python Classes available for these core functions. 
 
 ### Pipelines
 

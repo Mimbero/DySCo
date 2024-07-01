@@ -6,7 +6,7 @@ from scipy.linalg import eigh
 def compute_eigs_cov(timeseries, n_eigen, half_window_size):
 
     """
-    this function computes the pearson correlation matrices using a sliding window.
+    this function computes the covariance matrices using a sliding window.
      then calculates eigenvectors using the formula presented in the paper
 
     :param timeseries should be TxN, so every row is a timepoint and every column is a dimension.

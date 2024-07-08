@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def eida_distance(matrix_a, matrix_b, what_distance):
+def dysco_distance(matrix_a, matrix_b, what_distance):
     with np.errstate(invalid='ignore'):
 
         matrix_a = matrix_a.copy()

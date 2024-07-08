@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def norm(eigenvalues, what_norm):
+def dysco_norm(eigenvalues, what_norm):
     if what_norm == 1:
         norm = np.sum(np.abs(eigenvalues),axis=0)
     elif what_norm == 2:

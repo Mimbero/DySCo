@@ -1,6 +1,6 @@
 import numpy as np
 
-class EIDA_Norm:
+class Dysco_Norm:
     def __init__(self, what_norm):
         self.what_norm = what_norm
 

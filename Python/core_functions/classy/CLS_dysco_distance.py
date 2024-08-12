@@ -1,11 +1,13 @@
 import numpy as np
-class Eida_distance:
+
+
+class Dysco_distance:
     def __init__(self, what_distance):
         self.what_distance = what_distance
 
         return
 
-    def eida_distance(self, matrix_a, matrix_b):
+    def dysco_distance(self, matrix_a, matrix_b):
         with np.errstate(invalid='ignore'):
 
             matrix_a = matrix_a.copy()

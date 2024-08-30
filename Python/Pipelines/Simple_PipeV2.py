@@ -21,9 +21,15 @@ from CLS_dysco_reconf import Dysco_reconf_distance
 from CLS_dysco_norm import Dysco_Norm
 
 
-
-
 def surf_data_from_cifti(data, axis, surf_name):
+
+    """
+    :param data: Cifti data (from process Nifti function)
+    :param axis:
+    :param surf_name:
+    :return: Returns the surface data
+    """
+
     assert isinstance(axis, nb.cifti2.BrainModelAxis)
     for name, data_indices, model in axis.iter_structures():  # Iterates over volumetric and surface structures
         if name == surf_name:  # Just looking for a surface
@@ -36,6 +42,15 @@ def surf_data_from_cifti(data, axis, surf_name):
 
 
 def save_subject_data(subject_id, half_window_sz, n_eigs, eig_vect, eig_val):
+
+    """
+    :param subject_id: Id of subject
+    :param half_window_sz: The half window size (assigned in 'Main')
+    :param n_eigs: Number of Eigenvectors (assigned in 'Main')
+    :param eig_vect: The Eigenvector Array (returned from Class: ComputeEigs (in slide_window_rect))
+    :param eig_val: The Eigenvalue Array (returned from Class: ComputeEigs (in slide_window_rect))
+    :return: N/A, Saves .npy file to the specified path
+    """
 
     subject_folder = os.path.join(
         project_dir, 'Data', 'Saved_out', f'Data_WS-{half_window_sz}__eigen-{n_eigs}', subject_id
@@ -51,6 +66,14 @@ def save_subject_data(subject_id, half_window_sz, n_eigs, eig_vect, eig_val):
 
 
 def extract_subj_id(subject_txt, subj_partition, n_part):
+
+    """
+    :param subject_txt: Text file containing subject IDs
+    :param subj_partition: Conditional, Partition if you don't want to use all the data (assigned in 'Main')
+    :param n_part: The amount of data to use, IF partition == True
+    :return:
+    """
+
     with open(subject_txt, 'r') as file:
         subject_names = file.read().splitlines()
 
@@ -71,7 +94,7 @@ def process_nifti(file_path, n_eigs, window_shape, window_sizes, subject_id):
 
     axes = [cifti_hdr.get_axis(i) for i in range(cifti.ndim)]
     left_brain = surf_data_from_cifti(cifti_data, axes[1], 'CIFTI_STRUCTURE_CORTEX_LEFT')
-    right_brain = surf_data_from_cifti(cifti_data, axes[1], 'CIFTI_STRUCTURE_CORTEX_RIGHT')
+    # right_brain = surf_data_from_cifti(cifti_data, axes[1], 'CIFTI_STRUCTURE_CORTEX_RIGHT')
     brain_load = left_brain
 
     brain_load = brain_load.T
@@ -87,6 +110,16 @@ def process_nifti(file_path, n_eigs, window_shape, window_sizes, subject_id):
 
 def slide_window_rect(n_eigs, window_sizes, brain_load, subject_id):
 
+    """
+
+    :param n_eigs: Number of Eigenvectors (assigned in 'Main')
+    :param window_sizes: (assigned in 'Main')
+    :param brain_load: Data, passed from process_nifti (or process_mat)
+    :param subject_id:
+    :return: Returns Eigenvector and Eigenvalue arrays, calculated using Class:Compute_Eigs, here (see line 132) can
+    also be specified to use covariance, correlation, iPA etc.
+    """
+
     if not isinstance(window_sizes, int):
         for half_window_sz in window_sizes:
             inst = Compute_Eigs(brain_load, n_eigs, half_window_sz)
@@ -101,6 +134,13 @@ def slide_window_rect(n_eigs, window_sizes, brain_load, subject_id):
 
 
 def compute_fcd(i, j, eigvect, eigs_inst, eigs_inst_reconf):
+    """
+    Called from function: fcd_calc_para.
+    Computes fcd and mode alignment using core functions
+
+    :return: fcd (at ij) mode alignment (fcd_reconf) (at ij)
+    """
+
     matrix_a = eigvect[i, :, :]
     matrix_b = eigvect[j, :, :]
     fcd_ij = eigs_inst.dysco_distance(matrix_a, matrix_b)
@@ -110,6 +150,11 @@ def compute_fcd(i, j, eigvect, eigs_inst, eigs_inst_reconf):
 
 
 def fcd_calc_para(eigvect, T):
+    """
+    :param eigvect: eigenvector array (assigned in load_saved_eigs_and_analyse)
+    :param T: time points (assigned in load_saved_eigs_and_analyse)
+    :return: fcd, fcd_reconf
+    """
     fcd = np.zeros((T, T))
     fcd_reconf = np.zeros((T, T))
     eigs_inst = Dysco_distance(2)
@@ -136,6 +181,19 @@ def fcd_calc_para(eigvect, T):
 
 
 def load_saved_eigs_and_analyse(subj_names, data_folder, proxy_measure, fcd_calc, von_neum, norm_calc):
+
+    """
+
+    :param subj_names: subject names (from subject.txt)
+    :param data_folder: data folders (containing saved eig_vect and eig_val arrays, for each subject, at different
+    window sizes (if applicable)
+    :param proxy_measure: Conditional, only calculates VN entropy
+    :param fcd_calc: Conditional, perform fcd calculations
+    :param von_neum: Conditional, Calculate VN entropy
+    :param norm_calc: Conditional, Calculate Norms
+    :return: Return all_eigs (a combination of all subject matrix of eigenvectors) (if required). Based on above
+    conditionals will save result to appropriate subject folder.
+    """
     calc_measures = True
     count = 0
     window_folders = []
@@ -237,6 +295,14 @@ def load_saved_eigs_and_analyse(subj_names, data_folder, proxy_measure, fcd_calc
 
 
 def main():
+    """
+    Main Function
+
+    Set all variables and conditionals below.
+
+    Data Should be in the 'Data_In Folder'
+    :return:
+    """
 
     n_eigs = 10
     window_sizes = [5, 7, 9, 11, 13]

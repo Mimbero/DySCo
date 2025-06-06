@@ -342,7 +342,7 @@ def main():
                     eig_vec, eig_val = process_nifti(file_path, n_eigs, window_shape, window_sizes, subject_id)
 
     eig_data_folder = os.path.join(project_dir, 'Data', 'Saved_out')
-    all_eig = load_saved_eigs_and_analyse(subj_names, eig_data_folder, proxy_measure, fcd_calc, von_neum, norm_calc)
+     all_eig = load_saved_eigs_and_analyse(subj_names, eig_data_folder, proxy_measure, fcd_calc, von_neum, norm_calc)
 
 
 if __name__ == "__main__":
